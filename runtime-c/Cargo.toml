@@ -1,0 +1,10 @@
+[package]
+name = "runtime-c"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+page_size = "^0.4.2"
+syscalls = "^0.5.0"
