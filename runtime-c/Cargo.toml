@@ -2,6 +2,8 @@
 name = "runtime-c"
 version = "0.1.0"
 edition = "2021"
+description = "Does God stay in Heaven out of fear of what we have created?"
+tags = ["crimes"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

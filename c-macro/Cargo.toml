@@ -2,6 +2,8 @@
 name = "c-macro"
 version = "0.1.0"
 edition = "2021"
+description = "You cannot kill me in a way that matters."
+tags = ["crimes"]
 
 [lib]
 proc-macro = true
