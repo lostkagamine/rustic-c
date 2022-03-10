@@ -84,20 +84,11 @@ impl SourceCode {
 
 #[proc_macro]
 pub fn c(_strm: TokenStream) -> TokenStream {
-    //let mut strm: TokenStream = _strm.clone().into();
-
     let _captures: HashMap<String, u64> = HashMap::new();
 
     let mut src = SourceCode::new();
 
     src.reconstruct_c(_strm);
-    /*
-    let mut tok = strm.into_iter();
-    let mut span = tok.next().unwrap().span();
-    while let Some(t) = tok.next() {
-        span = span.join(t.span()).unwrap();
-    }
-    */
 
     let src_text = src.source
         .replace("{", "{{")
@@ -108,6 +99,13 @@ pub fn c(_strm: TokenStream) -> TokenStream {
     let capts = src.captures;
 
     let mut proper_capts: Vec<proc_macro2::TokenStream> = vec![];
+
+    // Here we format! the pointer addresses ('rust_fn) into
+    // a giant format-string to pass to the compile_c function
+    // at runtime. This is an extreme code-crime and literally
+    // has zero legitimate uses outside of doing this dumb stuff
+    // but I'm glad it exists. Otherwise I wouldn't have known
+    // any way to do this, lol.
 
     for i in capts {
         let proper_i = proc_macro2::Ident::new(&i, proc_macro2::Span::call_site());
