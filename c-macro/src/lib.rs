@@ -21,6 +21,9 @@ impl SourceCode {
     }
 
     // stealing stuff from mara here
+    // THANK YOU mara!! https://twitter.com/m_ou_se
+    // go read this, it's so good and my main inspiration behind this dumb crap
+    // https://blog.m-ou.se/writing-python-inside-rust-1/#procedural-macros
     fn add_str(&mut self, s: &str) {
         // Let's assume for now s contains no newlines.
         self.source += s;
