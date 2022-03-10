@@ -48,7 +48,7 @@ At the end of the proc macro, you'd think I'd emit `compile_c("your code as a st
 
 I note down what the `something` in `'something` is, and this is where I use it. So, I set up a `Vec` consisting of `TokenStream`s, which is what `quote!` outputs, and I enumerate my list of references. For each one, I emit Rust code that looks like `((something as *const ()) as u64)`.
 
-There's a couple things to note here. First one is `u64`, meaning that it will probably only behave on 64-bit systems. Second one is `something`. Because of when macros run in Rust, I can't simply get the address of `something` then. So, what the macro does is write code that fetches that address at runtime, and format-strings it into the C source for you.
+There's a couple things to note here. First one is `u64`, meaning that it will probably only behave on 64-bit systems. Second one is `something`. Because of when macros run in Rust, I can't simply get the address of `something` then. So, what the macro does is write code that fetches that address at runtime, and format-strings it into the C source for you. (As a bonus element of cursed, this actually formats the pointer addresses as decimal, so you end up with `((void(*)())123456789)`.)
 
 I'm sorry, lmao.
 
