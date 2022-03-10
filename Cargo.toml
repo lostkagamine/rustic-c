@@ -1,5 +1,6 @@
 [workspace]
 members = [
     "runtime-c",
-    "test-app"
+    "test-app",
+    "c-macro"
 ]

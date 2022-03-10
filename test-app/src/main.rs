@@ -1,5 +1,7 @@
-use runtime_c::{compile_c, do_horrible_crimes};
+//use runtime_c::{compile_c, do_horrible_crimes};
+use c_macro::c;
 
+/*
 fn say_hi() {
     println!("oh no");
 }
@@ -15,4 +17,15 @@ int one() {{
         println!("{x}");
     }
     println!("Hello, world!");
+}
+*/
+
+fn main() {
+    unsafe {
+        c! {
+            int x() {
+                return 5;
+            }
+        }
+    }
 }
